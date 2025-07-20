@@ -28,7 +28,7 @@ export const LIST_NAVIGATION:SidebarNavigationItem[] = [
         label: "Test Second",
         url:"/second",
         isActive:true,
-        icon:"test-tube",
+        icon:"test-tube-diagonal",
         subMenu:[]
     }
 ]

@@ -27,14 +27,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     avatar: "/avatars/shadcn.jpg",
   }
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon"  {...props} id="sidebar-component" className="z-50 [view-transition-name:sidebar-content]">
       <SidebarHeader>
         <DashboardLogo />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="z-50">
         <NavMain items={LIST_NAVIGATION} />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="z-50">
         <NavUser user={userData} />
       </SidebarFooter>
       <SidebarRail />

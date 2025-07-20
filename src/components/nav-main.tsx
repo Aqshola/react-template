@@ -36,7 +36,7 @@ export function NavMain({
             return <>
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip={item.label} asChild>
-                  <Link to={item.url}>
+                  <Link viewTransition={{ types: ['slide-left'] }} to={item.url}>
                     {item.icon && < DynamicIcon name={item.icon} />}
                     <span>{item.label}</span>
                   </Link>
