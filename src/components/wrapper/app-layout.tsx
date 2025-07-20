@@ -1,31 +1,29 @@
-import { LIST_NAVIGATION } from "@/constants/ui";
-import { Link, Outlet, useLocation } from "@tanstack/react-router";
+import {  Outlet, useLocation } from "@tanstack/react-router";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { AppSidebar } from "../app-sidebar";
 
 export default function AppLayout() {
-    const location=useLocation()
-    
-    if(location.pathname === "/") {
+    const location = useLocation()
+
+    if (location.pathname === "/") {
         return <Outlet />
     }
 
     return (
-        <div className="max-w-7xl mx-auto p-4 min-h-screen ">
-            <nav>
-                <h5>This is App Layout</h5>
-            </nav>
-            <div className="flex mt-2 h-full ">
-                <div className="flex flex-col border min-h-[95vh] p-3">
-                    {LIST_NAVIGATION.map((item) => (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            className="p-2 hover:bg-gray-200">{item.label}</Link>
-                    ))}
-                </div>
-                <div className="px-5">
-                    <Outlet />
-                </div>
+        <SidebarProvider>
+            <AppSidebar />
+            <SidebarInset>
+                <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+                    <div className="flex items-center gap-2 px-4">
+                        <SidebarTrigger className="-ml-1" />
+                    </div>
+                </header>
+            <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+                <Outlet/>
             </div>
-        </div>
+            </SidebarInset>
+        </SidebarProvider>
+
+       
     )
 }

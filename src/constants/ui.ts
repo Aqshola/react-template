@@ -1,14 +1,34 @@
-export const LIST_NAVIGATION = [
+import type { IconName } from "lucide-react/dynamic"
+
+export type SidebarNavigationItem = {
+    label: string
+    url: string
+    icon: IconName
+    isActive: boolean
+    subMenu: SidebarNavigationItem[]
+}
+
+
+export const LIST_NAVIGATION:SidebarNavigationItem[] = [
     {
         label: "Landing",
-        path:"/"
+        url:"/",
+        icon:"home",
+        isActive:true,
+        subMenu:[]
     },
     {
         label: "Test First",
-        path:"/first"
+        url:"/first",
+        isActive:true,
+        subMenu:[],
+        icon:"test-tube"
     },
     {
         label: "Test Second",
-        path:"/second"
+        url:"/second",
+        isActive:true,
+        icon:"test-tube",
+        subMenu:[]
     }
 ]

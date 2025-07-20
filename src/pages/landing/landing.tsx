@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import { Link } from "@tanstack/react-router"
 
 export default function Landing() {
@@ -7,14 +8,11 @@ export default function Landing() {
                 This is Landing Page
             </h1>
 
-            <button className="mt-5 border p-3">
-
+            <Button className="mt-5 border p-3">
                 <Link to={"/first"} >
-
                     Enter Web
-
                 </Link>
-            </button>
+            </Button>
         </div>
     )
 }
